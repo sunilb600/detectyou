@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DetectYou - Identity & Safety Detection Tools</title>
+    <meta name="description" content="Discover advanced identity detection tools, face recognition, email verification, and online safety resources. Protect your digital identity with DetectYou.">
+    <meta name="keywords" content="face detection, identity verification, online safety, privacy protection, email checker, username finder">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .page { display: none; }
+        .page.active { display: block; }
+        .adsense-placeholder {
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border: 2px dashed #ccc;
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+        .tool-result {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .navbar-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="navbar-sticky shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt text-blue-600 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl text-gray-800 cursor-pointer" onclick="showPage('home')">DetectYou</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" onclick="showPage('home')" class="nav-link text-gray-700 hover:text-blue-600 transition">Home</a>
+                    <a href="#" onclick="showPage('tools')" class="nav-link text-gray-700 hover:text-blue-600 transition">Tools</a>
+                    <a href="#" onclick="showPage('blog')" class="nav-link text-gray-700 hover:text-blue-600 transition">Blog</a>
+                    <a href="#" onclick="showPage('about')" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#" onclick="showPage('contact')" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#" onclick="showPage('home')" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#" onclick="showPage('tools')" class="block py-2 text-gray-700 hover:text-blue-600">Tools</a>
+                <a href="#" onclick="showPage('blog')" class="block py-2 text-gray-700 hover:text-blue-600">Blog</a>
+                <a href="#" onclick="showPage('about')" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+                <a href="#" onclick="showPage('contact')" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-20">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h1 class="text-5xl font-bold mb-6">Protect Your Digital Identity</h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">Advanced detection tools and privacy resources to keep you safe online. Verify identities, check emails, and protect your personal information with our comprehensive suite of detection tools.</p>
+                <button onclick="showPage('tools')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    <i class="fas fa-tools mr-2"></i>Explore Tools
+                </button>
+            </div>
+        </section>
+
+        <!-- AdSense Placeholder -->
+        <div class="adsense-placeholder max-w-6xl mx-auto">
+            AdSense Banner Placement - 728x90 Leaderboard
+        </div>
+
+        <!-- Features Section -->
+        <section class="py-16 max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Detection Tools</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-user-check text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Face Detection</h3>
+                    <p class="text-gray-600">Advanced facial recognition technology to detect and analyze faces in images with high accuracy.</p>
+                    <button onclick="showPage('face-detection')" class="mt-4 text-blue-600 hover:text-blue-800">Try Now ?</button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-envelope-open-text text-green-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Email Verification</h3>
+                    <p class="text-gray-600">Verify email addresses, check deliverability, and detect disposable email services.</p>
+                    <button onclick="showPage('email-checker')" class="mt-4 text-green-600 hover:text-green-800">Try Now ?</button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-search text-purple-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Username Finder</h3>
+                    <p class="text-gray-600">Search for usernames across multiple social media platforms and websites.</p>
+                    <button onclick="showPage('username-finder')" class="mt-4 text-purple-600 hover:text-purple-800">Try Now ?</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Blog Posts -->
+        <section class="bg-gray-100 py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Latest Articles</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <article class="bg-white p-6 rounded-lg shadow blog-card">
+                        <h3 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-1')">How to Detect Fake Profiles on Social Media</h3>
+                        <p class="text-gray-600 mb-4">Learn the telltale signs of fake social media profiles and protect yourself from catfishing and identity theft...</p>
+                        <span class="text-sm text-gray-500">5 min read</span>
+                    </article>
+                    <article class="bg-white p-6 rounded-lg shadow blog-card">
+                        <h3 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-2')">Protecting Your Face from Unauthorized Use Online</h3>
+                        <p class="text-gray-600 mb-4">Discover how your facial images can be misused and learn practical steps to protect your visual identity...</p>
+                        <span class="text-sm text-gray-500">7 min read</span>
+                    </article>
+                </div>
+                <div class="text-center mt-8">
+                    <button onclick="showPage('blog')" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">View All Articles</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Placeholder -->
+        <div class="adsense-placeholder max-w-6xl mx-auto">
+            AdSense Rectangle Placement - 336x280 Large Rectangle
+        </div>
+    </div>
+
+    <!-- Tools Page -->
+    <div id="tools" class="page">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Detection Tools</h1>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Our comprehensive suite of identity and safety detection tools. All tools are designed to help you verify information and protect your online presence.</p>
+            
+            <div class="adsense-placeholder">
+                AdSense Banner Placement - 728x90 Leaderboard
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-camera text-blue-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Face Detection Tool</h3>
+                    <p class="text-gray-600 mb-4">Upload an image to detect and analyze faces with advanced AI technology.</p>
+                    <button onclick="showPage('face-detection')" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Launch Tool</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-smile text-yellow-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Emotion Detector</h3>
+                    <p class="text-gray-600 mb-4">Analyze text to detect emotional tone and sentiment patterns.</p>
+                    <button onclick="showPage('emotion-detector')" class="w-full bg-yellow-600 text-white py-2 rounded hover:bg-yellow-700 transition">Launch Tool</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-at text-green-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Email Checker</h3>
+                    <p class="text-gray-600 mb-4">Verify email addresses and check for potential security risks.</p>
+                    <button onclick="showPage('email-checker')" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Launch Tool</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-user-search text-purple-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Username Finder</h3>
+                    <p class="text-gray-600 mb-4">Search for usernames across multiple platforms and social networks.</p>
+                    <button onclick="showPage('username-finder')" class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition">Launch Tool</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-copy text-red-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Text Similarity Checker</h3>
+                    <p class="text-gray-600 mb-4">Compare two texts to detect similarities and potential plagiarism.</p>
+                    <button onclick="showPage('text-similarity')" class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">Launch Tool</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition border-2 border-dashed border-gray-300">
+                    <i class="fas fa-plus text-gray-400 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-500">More Tools Coming</h3>
+                    <p class="text-gray-400 mb-4">We're constantly developing new detection and verification tools.</p>
+                    <button class="w-full bg-gray-400 text-white py-2 rounded cursor-not-allowed">Coming Soon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Face Detection Tool -->
+    <div id="face-detection" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Face Detection Tool</h1>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-gray-600 mb-6">Our advanced face detection tool uses cutting-edge AI technology to identify and analyze faces in uploaded images. Perfect for security applications, photo organization, and identity verification. Upload an image to detect faces, analyze facial features, and get detailed information about detected faces including age estimation, gender prediction, and emotion analysis.</p>
+                
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Upload Image</label>
+                    <input type="file" id="face-upload" accept="image/*" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <button onclick="runFaceDetection()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                    <i class="fas fa-search mr-2"></i>Detect Faces
+                </button>
+
+                <div id="face-result" class="tool-result">
+                    <h3 class="text-lg font-semibold mb-4 text-green-600"><i class="fas fa-check-circle mr-2"></i>Detection Results</h3>
+                    <div class="bg-green-50 p-4 rounded border-l-4 border-green-400">
+                        <p><strong>Faces Detected:</strong> 2</p>
+                        <p><strong>Face 1:</strong> Age: 28-32, Gender: Female, Confidence: 94.7%</p>
+                        <p><strong>Face 2:</strong> Age: 35-40, Gender: Male, Confidence: 91.2%</p>
+                        <p><strong>Image Quality:</strong> High</p>
+                        <p><strong>Processing Time:</strong> 0.34 seconds</p>
+                    </div>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <p class="text-sm text-gray-500 mt-6 text-center"><i class="fas fa-shield-alt mr-1"></i>This is a demo tool. No data is stored or transmitted.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emotion Detector Tool -->
+    <div id="emotion-detector" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Emotion Detector</h1>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-gray-600 mb-6">Analyze the emotional tone and sentiment of any text using our advanced natural language processing algorithms. This tool can detect various emotions including joy, sadness, anger, fear, surprise, and disgust. Perfect for social media monitoring, customer feedback analysis, and content creation.</p>
+                
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Enter Text to Analyze</label>
+                    <textarea id="emotion-text" placeholder="Type or paste your text here..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 h-32 resize-none"></textarea>
+                </div>
+
+                <button onclick="runEmotionDetection()" class="w-full bg-yellow-600 text-white py-3 rounded-lg hover:bg-yellow-700 transition font-semibold">
+                    <i class="fas fa-brain mr-2"></i>Analyze Emotions
+                </button>
+
+                <div id="emotion-result" class="tool-result">
+                    <h3 class="text-lg font-semibold mb-4 text-yellow-600"><i class="fas fa-chart-bar mr-2"></i>Emotion Analysis Results</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Joy</span>
+                            <div class="flex items-center">
+                                <div class="w-32 bg-gray-200 rounded-full h-2 mr-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                                <span class="text-sm font-medium">75%</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Confidence</span>
+                            <div class="flex items-center">
+                                <div class="w-32 bg-gray-200 rounded-full h-2 mr-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 42%"></div>
+                                </div>
+                                <span class="text-sm font-medium">42%</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Surprise</span>
+                            <div class="flex items-center">
+                                <div class="w-32 bg-gray-200 rounded-full h-2 mr-2">
+                                    <div class="bg-purple-500 h-2 rounded-full" style="width: 28%"></div>
+                                </div>
+                                <span class="text-sm font-medium">28%</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
+                            <p><strong>Overall Sentiment:</strong> Positive</p>
+                            <p><strong>Dominant Emotion:</strong> Joy</p>
+                            <p><strong>Confidence Score:</strong> 87.3%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <p class="text-sm text-gray-500 mt-6 text-center"><i class="fas fa-shield-alt mr-1"></i>This is a demo tool. No data is stored or transmitted.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Checker Tool -->
+    <div id="email-checker" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Email Checker Tool</h1>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-gray-600 mb-6">Verify email addresses instantly with our comprehensive email validation service. Check for deliverability, detect disposable email services, validate domain records, and identify potential security risks. Essential for email marketing, user registration, and fraud prevention.</p>
+                
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" id="email-input" placeholder="Enter email address to verify..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                </div>
+
+                <button onclick="runEmailCheck()" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                    <i class="fas fa-envelope-circle-check mr-2"></i>Verify Email
+                </button>
+
+                <div id="email-result" class="tool-result">
+                    <h3 class="text-lg font-semibold mb-4 text-green-600"><i class="fas fa-check-circle mr-2"></i>Email Verification Results</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-4 rounded border-l-4 border-green-400">
+                            <h4 class="font-semibold text-green-800 mb-2">Validation Status</h4>
+                            <p><strong>Valid:</strong> ? Yes</p>
+                            <p><strong>Deliverable:</strong> ? Likely</p>
+                            <p><strong>Risk Level:</strong> ?? Low</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-400">
+                            <h4 class="font-semibold text-blue-800 mb-2">Domain Information</h4>
+                            <p><strong>Domain:</strong> gmail.com</p>
+                            <p><strong>MX Records:</strong> ? Valid</p>
+                            <p><strong>SMTP:</strong> ? Responsive</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-gray-50 rounded">
+                        <p><strong>Provider:</strong> Google (Gmail)</p>
+                        <p><strong>Disposable:</strong> No</p>
+                        <p><strong>Role Account:</strong> No</p>
+                        <p><strong>Spam Score:</strong> 0.2/10</p>
+                    </div>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <p class="text-sm text-gray-500 mt-6 text-center"><i class="fas fa-shield-alt mr-1"></i>This is a demo tool. No data is stored or transmitted.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Username Finder Tool -->
+    <div id="username-finder" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Username Finder</h1>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-gray-600 mb-6">Search for usernames across multiple social media platforms and websites. Perfect for social media investigations, brand monitoring, and online reputation management. Our tool searches over 500+ platforms to find matching usernames and profiles.</p>
+                
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Username to Search</label>
+                    <input type="text" id="username-input" placeholder="Enter username to search..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                </div>
+
+                <button onclick="runUsernameSearch()" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition font-semibold">
+                    <i class="fas fa-search mr-2"></i>Search Username
+                </button>
+
+                <div id="username-result" class="tool-result">
+                    <h3 class="text-lg font-semibold mb-4 text-purple-600"><i class="fas fa-list mr-2"></i>Search Results</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded border-l-4 border-green-400">
+                            <div class="flex items-center">
+                                <i class="fab fa-twitter text-blue-500 text-xl mr-3"></i>
+                                <span class="font-medium">Twitter</span>
+                            </div>
+                            <span class="text-green-600 font-semibold">? Available</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded border-l-4 border-red-400">
+                            <div class="flex items-center">
+                                <i class="fab fa-instagram text-pink-500 text-xl mr-3"></i>
+                                <span class="font-medium">Instagram</span>
+                            </div>
+                            <span class="text-red-600 font-semibold">? Taken</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded border-l-4 border-green-400">
+                            <div class="flex items-center">
+                                <i class="fab fa-facebook text-blue-600 text-xl mr-3"></i>
+                                <span class="font-medium">Facebook</span>
+                            </div>
+                            <span class="text-green-600 font-semibold">? Available</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded border-l-4 border-red-400">
+                            <div class="flex items-center">
+                                <i class="fab fa-youtube text-red-500 text-xl mr-3"></i>
+                                <span class="font-medium">YouTube</span>
+                            </div>
+                            <span class="text-red-600 font-semibold">? Taken</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded border-l-4 border-green-400">
+                            <div class="flex items-center">
+                                <i class="fab fa-linkedin text-blue-700 text-xl mr-3"></i>
+                                <span class="font-medium">LinkedIn</span>
+                            </div>
+                            <span class="text-green-600 font-semibold">? Available</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-purple-50 rounded border-l-4 border-purple-400">
+                        <p><strong>Platforms Searched:</strong> 25</p>
+                        <p><strong>Available:</strong> 18</p>
+                        <p><strong>Taken:</strong> 7</p>
+                        <p><strong>Search Time:</strong> 2.1 seconds</p>
+                    </div>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <p class="text-sm text-gray-500 mt-6 text-center"><i class="fas fa-shield-alt mr-1"></i>This is a demo tool. No data is stored or transmitted.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Similarity Checker -->
+    <div id="text-similarity" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Text Similarity Checker</h1>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-gray-600 mb-6">Compare two texts to detect similarities and potential plagiarism using advanced algorithms. Perfect for academic research, content verification, and duplicate detection. Our tool provides detailed similarity analysis with percentage matching and highlighted differences.</p>
+                
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Text 1</label>
+                        <textarea id="text1" placeholder="Paste first text here..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 h-32 resize-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Text 2</label>
+                        <textarea id="text2" placeholder="Paste second text here..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 h-32 resize-none"></textarea>
+                    </div>
+                </div>
+
+                <button onclick="runTextSimilarity()" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-semibold">
+                    <i class="fas fa-balance-scale mr-2"></i>Check Similarity
+                </button>
+
+                <div id="similarity-result" class="tool-result">
+                    <h3 class="text-lg font-semibold mb-4 text-red-600"><i class="fas fa-chart-pie mr-2"></i>Similarity Analysis</h3>
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-32 h-32 bg-red-100 rounded-full">
+                            <span class="text-3xl font-bold text-red-600">73%</span>
+                        </div>
+                        <p class="text-lg font-semibold mt-2">Similarity Score</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-red-50 p-4 rounded border-l-4 border-red-400">
+                            <h4 class="font-semibold text-red-800 mb-2">Matching Elements</h4>
+                            <p><strong>Word Matches:</strong> 45 words</p>
+                            <p><strong>Phrase Matches:</strong> 12 phrases</p>
+                            <p><strong>Sentence Matches:</strong> 3 sentences</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-400">
+                            <h4 class="font-semibold text-blue-800 mb-2">Analysis Details</h4>
+                            <p><strong>Algorithm:</strong> Cosine Similarity</p>
+                            <p><strong>Processing Time:</strong> 0.8s</p>
+                            <p><strong>Text Length:</strong> 234 vs 198 chars</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
+                        <p><strong>Assessment:</strong> High similarity detected - possible plagiarism</p>
+                        <p><strong>Recommendation:</strong> Manual review recommended</p>
+                    </div>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <p class="text-sm text-gray-500 mt-6 text-center"><i class="fas fa-shield-alt mr-1"></i>This is a demo tool. No data is stored or transmitted.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Privacy & Safety Blog</h1>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Stay informed about the latest in online safety, privacy protection, and identity verification. Our expert articles cover everything from social media security to advanced detection techniques.</p>
+            
+            <div class="adsense-placeholder">
+                AdSense Banner Placement - 728x90 Leaderboard
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden blog-card">
+                    <div class="p-6">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-3">Online Safety</span>
+                        <h2 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-1')">How to Detect Fake Profiles on Social Media</h2>
+                        <p class="text-gray-600 mb-4">Learn the warning signs of fake social media profiles and protect yourself from catfishing, identity theft, and online scams...</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>March 15, 2024</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden blog-card">
+                    <div class="p-6">
+                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-3">Privacy</span>
+                        <h2 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-2')">Protecting Your Face from Unauthorized Use Online</h2>
+                        <p class="text-gray-600 mb-4">Discover how your facial images can be misused online and learn practical steps to protect your visual identity...</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>March 12, 2024</span>
+                            <span>7 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden blog-card">
+                    <div class="p-6">
+                        <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full mb-3">Security</span>
+                        <h2 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-3')">Email Security: Identifying Phishing Attempts</h2>
+                        <p class="text-gray-600 mb-4">Master the art of identifying phishing emails and protect your personal information from cybercriminals...</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>March 10, 2024</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden blog-card">
+                    <div class="p-6">
+                        <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mb-3">Identity</span>
+                        <h2 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-4')">The Dark Side of Social Media: Identity Theft Prevention</h2>
+                        <p class="text-gray-600 mb-4">Understand how identity thieves exploit social media and learn comprehensive protection strategies...</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>March 8, 2024</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden blog-card">
+                    <div class="p-6">
+                        <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full mb-3">Technology</span>
+                        <h2 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-5')">AI and Face Recognition: Privacy Implications</h2>
+                        <p class="text-gray-600 mb-4">Explore the privacy implications of widespread AI face recognition technology and how to protect yourself...</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>March 5, 2024</span>
+                            <span>9 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden blog-card">
+                    <div class="p-6">
+                        <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full mb-3">Detection</span>
+                        <h2 class="text-xl font-semibold mb-3 hover:text-blue-600 cursor-pointer" onclick="showPage('blog-post-6')">Advanced Username Investigation Techniques</h2>
+                        <p class="text-gray-600 mb-4">Professional techniques for investigating usernames across platforms for security and verification purposes...</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>March 3, 2024</span>
+                            <span>10 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="adsense-placeholder">
+                AdSense Rectangle Placement - 336x280 Large Rectangle
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Post 1 -->
+    <div id="blog-post-1" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <article class="bg-white rounded-lg shadow-lg p-8">
+                <header class="mb-8">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mb-4">Online Safety</span>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">How to Detect Fake Profiles on Social Media</h1>
+                    <div class="flex items-center text-gray-600 mb-6">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">March 15, 2024</span>
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>5 min read</span>
+                    </div>
+                </header>
+
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="prose max-w-none">
+                    <p class="text-lg text-gray-700 mb-6">In today's digital age, fake social media profiles have become increasingly sophisticated and prevalent. Whether used for catfishing, identity theft, or spreading misinformation, these deceptive accounts pose serious risks to unsuspecting users. Learning to identify fake profiles is crucial for maintaining your online safety and protecting your personal information.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Red Flags to Watch For</h2>
+                    
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">1. Limited Profile Information</h3>
+                    <p class="text-gray-700 mb-4">Genuine users typically fill out their profiles with personal details, interests, and background information. Fake profiles often lack this depth, containing minimal information or generic details that could apply to anyone. Look for profiles with incomplete biographical information, missing work or education details, and vague descriptions.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">2. Suspicious Photo Patterns</h3>
+                    <p class="text-gray-700 mb-4">One of the most telling signs of a fake profile is unusual photo patterns. Be wary of accounts that have very few photos, professional-quality images that seem too perfect, or photos that appear to be stock images. Many fake profiles use stolen photos from other social media accounts or professional photography.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3. Recent Account Creation</h3>
+                    <p class="text-gray-700 mb-4">While not definitive proof, newly created accounts with large numbers of connections or followers should raise suspicion. Fake profiles are often created for specific purposes and may accumulate connections quickly through automated means or deceptive practices.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Advanced Detection Techniques</h2>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Reverse Image Searching</h3>
+                    <p class="text-gray-700 mb-4">Use reverse image search tools like Google Images or TinEye to verify whether profile photos appear elsewhere on the internet. If the same images appear on multiple unrelated profiles or stock photo websites, you're likely dealing with a fake account.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Social Network Analysis</h3>
+                    <p class="text-gray-700 mb-4">Examine the account's connections and interactions. Fake profiles often have networks that don't make logical sense – connections from vastly different geographic locations without reasonable explanation, or interactions that seem scripted or generic.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Communication Patterns</h3>
+                    <p class="text-gray-700 mb-4">Pay attention to how the person communicates. Fake profiles may exhibit inconsistent language patterns, avoid video calls or phone conversations, and often redirect conversations away from personal topics or current events in their supposed location.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Protecting Yourself</h2>
+
+                    <p class="text-gray-700 mb-4">If you suspect you're interacting with a fake profile, don't panic. Simply stop engaging with the account and report it to the platform. Never share personal information like your address, phone number, financial details, or intimate photos with someone you've only met online.</p>
+
+                    <p class="text-gray-700 mb-4">Trust your instincts – if something feels off about an online interaction, it probably is. Legitimate people won't pressure you for personal information or rush to move conversations off the platform quickly.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Using Detection Tools</h2>
+
+                    <p class="text-gray-700 mb-6">Modern technology offers various tools to help verify online identities. Face detection software can help identify if images are authentic, while username search tools can reveal if someone is using the same identity across multiple platforms consistently. Email verification tools can also help confirm whether contact information is legitimate.</p>
+
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400 mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Quick Verification Checklist</h3>
+                        <ul class="list-disc pl-6 text-blue-700">
+                            <li>Check profile completeness and consistency</li>
+                            <li>Reverse search profile images</li>
+                            <li>Verify contact information</li>
+                            <li>Analyze social connections</li>
+                            <li>Test communication patterns</li>
+                            <li>Trust your instincts</li>
+                        </ul>
+                    </div>
+
+                    <p class="text-gray-700">Remember, staying safe online requires constant vigilance and healthy skepticism. By learning to identify fake profiles and using the right tools, you can protect yourself and others from online deception and maintain a safer digital environment for everyone.</p>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <button onclick="showPage('blog')" class="text-blue-600 hover:text-blue-800 font-medium">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+                    </button>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Blog Post 2 -->
+    <div id="blog-post-2" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <article class="bg-white rounded-lg shadow-lg p-8">
+                <header class="mb-8">
+                    <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full mb-4">Privacy</span>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Protecting Your Face from Unauthorized Use Online</h1>
+                    <div class="flex items-center text-gray-600 mb-6">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">March 12, 2024</span>
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>7 min read</span>
+                    </div>
+                </header>
+
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="prose max-w-none">
+                    <p class="text-lg text-gray-700 mb-6">Your face is your most recognizable feature, and in our increasingly digital world, it has become a valuable commodity that can be exploited without your knowledge or consent. From deepfake technology to identity theft, the unauthorized use of facial images poses serious privacy and security risks that everyone should understand and protect against.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">How Your Face Can Be Misused</h2>
+                    
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Identity Theft and Impersonation</h3>
+                    <p class="text-gray-700 mb-4">Criminals can use your photos to create fake social media profiles, dating profiles, or even official documents. These impersonated identities can be used to scam others, damage your reputation, or gain access to services and benefits in your name. The sophisticated nature of modern photo editing tools makes it increasingly easy for bad actors to create convincing fake identities.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Deepfake Technology</h3>
+                    <p class="text-gray-700 mb-4">Artificial intelligence has made it possible to create highly realistic videos of people saying or doing things they never actually did. These deepfakes can be used for blackmail, harassment, revenge, or spreading false information. While the technology requires some technical skill, it's becoming increasingly accessible to the general public.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Commercial Exploitation</h3>
+                    <p class="text-gray-700 mb-4">Your images might be used in advertising, marketing campaigns, or sold to stock photo companies without your permission. This unauthorized commercial use not only violates your privacy but also prevents you from controlling how your image is associated with various products or messages.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Common Sources of Image Theft</h2>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Social Media Platforms</h3>
+                    <p class="text-gray-700 mb-4">Public social media profiles are goldmines for image thieves. Even with privacy settings, your photos can be accessed and saved by determined individuals. Tagged photos from friends' accounts, profile pictures, and shared images all present opportunities for unauthorized use.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Professional and Business Websites</h3>
+                    <p class="text-gray-700 mb-4">Company websites, professional directories, LinkedIn profiles, and other business-related platforms often contain high-quality images that are attractive to identity thieves. These photos often convey professionalism and trustworthiness, making them valuable for creating convincing fake profiles.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Data Breaches</h3>
+                    <p class="text-gray-700 mb-4">When platforms experience security breaches, personal images can be among the compromised data. These images may then be sold on dark web marketplaces or used directly by cybercriminals for various fraudulent activities.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Protection Strategies</h2>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Social Media Privacy Settings</h3>
+                    <p class="text-gray-700 mb-4">Regularly review and update your privacy settings across all social media platforms. Limit who can see your photos, disable automatic tagging, and consider making your profiles private. Remember that privacy settings can change with platform updates, so periodic reviews are essential.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Watermarking and Image Protection</h3>
+                    <p class="text-gray-700 mb-4">For photos you must share publicly, consider adding visible watermarks or copyright notices. While not foolproof, this can deter casual theft and make unauthorized use more obvious. Some services also offer invisible watermarking that can help track usage of your images.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Regular Monitoring</h3>
+                    <p class="text-gray-700 mb-4">Periodically search for your images online using reverse image search tools. Set up Google Alerts for your name and consider using specialized services that monitor for unauthorized use of your photos across the internet.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Detection and Response</h2>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Reverse Image Searching</h3>
+                    <p class="text-gray-700 mb-4">Tools like Google Images, TinEye, and specialized facial recognition services can help you discover where your images appear online. Regular searches can reveal unauthorized use before it becomes a larger problem.</p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Legal Recourse</h3>
+                    <p class="text-gray-700 mb-4">When you discover unauthorized use of your images, document the evidence immediately. Many platforms have policies against using others' images without permission and will remove content upon request. For serious cases, consider consulting with a lawyer specializing in privacy or intellectual property law.</p>
+
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400 mb-6">
+                        <h3 class="text-lg font-semibold text-green-800 mb-2">Image Protection Best Practices</h3>
+                        <ul class="list-disc pl-6 text-green-700">
+                            <li>Use strict privacy settings on all social platforms</li>
+                            <li>Avoid sharing high-resolution images publicly</li>
+                            <li>Regularly monitor for unauthorized use</li>
+                            <li>Consider watermarking important photos</li>
+                            <li>Be selective about professional photo sharing</li>
+                            <li>Keep evidence of original image ownership</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">The Future of Facial Privacy</h2>
+
+                    <p class="text-gray-700 mb-4">As facial recognition technology becomes more sophisticated and widespread, protecting your facial privacy becomes increasingly important. New regulations like GDPR and various biometric privacy laws are beginning to address these concerns, but individual vigilance remains crucial.</p>
+
+                    <p class="text-gray-700 mb-6">Consider the long-term implications of sharing facial images online. Photos shared today may be used in ways we can't yet imagine as technology continues to evolve. Building good privacy habits now can help protect you from future threats.</p>
+
+                    <p class="text-gray-700">Remember, once an image is online, you lose a significant degree of control over it. The best protection is prevention – being thoughtful about what you share and with whom. When combined with regular monitoring and quick response to unauthorized use, these strategies can help maintain your facial privacy in an increasingly connected world.</p>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <button onclick="showPage('blog')" class="text-blue-600 hover:text-blue-800 font-medium">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+                    </button>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Additional Blog Posts (abbreviated for space) -->
+    <div id="blog-post-3" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <article class="bg-white rounded-lg shadow-lg p-8">
+                <header class="mb-8">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full mb-4">Security</span>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Email Security: Identifying Phishing Attempts</h1>
+                    <div class="flex items-center text-gray-600 mb-6">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">March 10, 2024</span>
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>6 min read</span>
+                    </div>
+                </header>
+
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <div class="prose max-w-none">
+                    <p class="text-lg text-gray-700 mb-6">Phishing attacks remain one of the most effective methods cybercriminals use to steal personal information, login credentials, and financial data. These deceptive emails are becoming increasingly sophisticated, making them harder to detect for the average user. Understanding how to identify and respond to phishing attempts is crucial for maintaining your digital security and protecting your personal information.</p>
+
+                    <p class="text-gray-700 mb-4">Modern phishing emails often mimic legitimate communications from banks, social media platforms, online retailers, and other trusted services. They create a sense of urgency to pressure victims into acting quickly without thinking critically about the request. Learning to spot these red flags can save you from falling victim to identity theft and financial fraud.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Common Phishing Tactics</h2>
+                    
+                    <p class="text-gray-700 mb-4">Phishing emails typically use psychological manipulation to achieve their goals. They might claim your account has been compromised, that you've won a prize, or that immediate action is required to prevent account closure. These emotional triggers are designed to bypass your rational thinking and prompt immediate action.</p>
+
+                    <p class="text-gray-700 mb-6">Always verify unexpected emails by contacting the organization directly through official channels. Never click links or download attachments from suspicious emails, and be particularly wary of requests for personal information, passwords, or financial details via email.</p>
+                </div>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <button onclick="showPage('blog')" class="text-blue-600 hover:text-blue-800 font-medium">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+                    </button>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-6">About DetectYou</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We're dedicated to providing advanced identity detection tools and privacy education to help you stay safe in the digital world.</p>
+            </div>
+
+            <div class="adsense-placeholder">
+                AdSense Banner Placement - 728x90 Leaderboard
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h2>
+                    <p class="text-gray-700 mb-4">At DetectYou, we believe everyone deserves to feel secure online. Our mission is to democratize access to advanced identity verification tools and provide comprehensive education about digital privacy and safety.</p>
+                    <p class="text-gray-700 mb-4">We understand that the digital landscape can be overwhelming and dangerous for many users. That's why we've created a suite of easy-to-use detection tools that help verify identities, check information authenticity, and protect against online threats.</p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">What We Offer</h2>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-check text-green-600 mr-3 mt-1"></i>Advanced face detection and analysis tools</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-600 mr-3 mt-1"></i>Email verification and security checking</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-600 mr-3 mt-1"></i>Username investigation across platforms</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-600 mr-3 mt-1"></i>Text analysis and similarity detection</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-600 mr-3 mt-1"></i>Comprehensive privacy and safety education</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg mb-12">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold mb-4">Our Commitment to Privacy</h2>
+                    <p class="text-lg mb-6">We take your privacy seriously. All our demo tools are designed for educational purposes and do not store, transmit, or process your personal data. Your security and privacy are our top priorities.</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <i class="fas fa-shield-alt text-4xl mb-2"></i>
+                            <h3 class="font-semibold">No Data Storage</h3>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-lock text-4xl mb-2"></i>
+                            <h3 class="font-semibold">Secure Processing</h3>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-user-shield text-4xl mb-2"></i>
+                            <h3 class="font-semibold">Privacy First</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="adsense-placeholder">
+                AdSense Rectangle Placement - 336x280 Large Rectangle
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-6">Contact Us</h1>
+                <p class="text-xl text-gray-600">Have questions about our tools or need help with online safety? We're here to help.</p>
+            </div>
+
+            <div class="adsense-placeholder">
+                AdSense Banner Placement - 728x90 Leaderboard
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-blue-600 text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Email Support</h3>
+                                <p class="text-gray-600">support@detectyou.com</p>
+                                <p class="text-sm text-gray-500">We typically respond within 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-green-600 text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Security Issues</h3>
+                                <p class="text-gray-600">security@detectyou.com</p>
+                                <p class="text-sm text-gray-500">For reporting security vulnerabilities</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-question-circle text-purple-600 text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">General Inquiries</h3>
+                                <p class="text-gray-600">info@detectyou.com</p>
+                                <p class="text-sm text-gray-500">Questions about our services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+                    <form id="contact-form" onsubmit="submitContactForm(event)">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option>General Question</option>
+                                <option>Tool Feedback</option>
+                                <option>Privacy Concern</option>
+                                <option>Technical Issue</option>
+                                <option>Partnership Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-32 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="adsense-placeholder">
+                AdSense Rectangle Placement - 336x280 Large Rectangle
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <div id="privacy" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Privacy Policy</h1>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-gray-600 mb-6"><strong>Last updated:</strong> March 15, 2024</p>
+                
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">1. Information We Collect</h2>
+                <p class="text-gray-700 mb-4">DetectYou is committed to protecting your privacy. Our demo tools do not collect, store, or transmit any personal data. When you use our detection tools, all processing happens locally in your browser, and no information is sent to our servers.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">2. How We Use Information</h2>
+                <p class="text-gray-700 mb-4">We may collect anonymous usage statistics to improve our services, including page views, tool usage frequency, and general geographic location. This information cannot be used to identify individual users.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">3. Data Security</h2>
+                <p class="text-gray-700 mb-4">We implement appropriate security measures to protect any information we do collect. Our website uses HTTPS encryption, and we follow industry best practices for data protection.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">4. Third-Party Services</h2>
+                <p class="text-gray-700 mb-4">Our website may use third-party services such as Google Analytics and advertising networks. These services have their own privacy policies, and we encourage you to review them.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">5. Cookies</h2>
+                <p class="text-gray-700 mb-4">We use cookies to enhance your browsing experience and to serve relevant advertisements. You can disable cookies in your browser settings, though this may affect website functionality.</p>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">6. Contact Us</h2>
+                <p class="text-gray-700">If you have any questions about this Privacy Policy, please contact us at privacy@detectyou.com.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer Page -->
+    <div id="disclaimer" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Disclaimer</h1>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="adsense-placeholder">
+                    AdSense Banner Placement - 728x90 Leaderboard
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Educational Purpose</h2>
+                <p class="text-gray-700 mb-4">All tools provided on DetectYou are for educational and demonstration purposes only. They are designed to showcase detection technologies and privacy concepts, not to provide actual detection services.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">No Guarantee of Accuracy</h2>
+                <p class="text-gray-700 mb-4">The results displayed by our demo tools are simulated and should not be relied upon for any real-world applications. We make no guarantees about the accuracy, reliability, or completeness of any information provided.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Limitation of Liability</h2>
+                <p class="text-gray-700 mb-4">DetectYou and its operators shall not be liable for any damages arising from the use of this website or its tools. Users assume all risks associated with the use of our services.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">External Links</h2>
+                <p class="text-gray-700 mb-6">Our website may contain links to external websites. We are not responsible for the content, privacy policies, or practices of these external sites.</p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Changes to Disclaimer</h2>
+                <p class="text-gray-700">We reserve the right to modify this disclaimer at any time. Changes will be effective immediately upon posting to our website.</p>
+
+                <div class="adsense-placeholder">
+                    AdSense Rectangle Placement - 336x280 Large Rectangle
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-blue-400 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl">DetectYou</span>
+                    </div>
+                    <p class="text-gray-400">Protecting your digital identity with advanced detection tools and privacy education.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Tools</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="showPage('face-detection')" class="hover:text-white">Face Detection</a></li>
+                        <li><a href="#" onclick="showPage('emotion-detector')" class="hover:text-white">Emotion Detector</a></li>
+                        <li><a href="#" onclick="showPage('email-checker')" class="hover:text-white">Email Checker</a></li>
+                        <li><a href="#" onclick="showPage('username-finder')" class="hover:text-white">Username Finder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="showPage('blog')" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" onclick="showPage('privacy')" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showPage('disclaimer')" class="hover:text-white">Disclaimer</a></li>
+                        <li><a href="#" onclick="showPage('contact')" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Stay Safe Online</h3>
+                    <p class="text-gray-400 mb-4">Get the latest privacy tips and security updates.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-3 py-2 bg-gray-700 text-white rounded-l border-0 focus:outline-none">
+                        <button class="bg-blue-600 px-4 py-2 rounded-r hover:bg-blue-700 transition">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 DetectYou. All rights reserved. Built for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation system
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tool Functions
+        function runFaceDetection() {
+            const input = document.getElementById('face-upload');
+            if (!input.files || input.files.length === 0) {
+                alert('Please select an image first.');
+                return;
+            }
+            
+            // Simulate processing
+            const resultDiv = document.getElementById('face-result');
+            resultDiv.style.display = 'block';
+            
+            // Scroll to results
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function runEmotionDetection() {
+            const text = document.getElementById('emotion-text').value.trim();
+            if (!text) {
+                alert('Please enter some text to analyze.');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('emotion-result');
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function runEmailCheck() {
+            const email = document.getElementById('email-input').value.trim();
+            if (!email) {
+                alert('Please enter an email address.');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('email-result');
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function runUsernameSearch() {
+            const username = document.getElementById('username-input').value.trim();
+            if (!username) {
+                alert('Please enter a username to search.');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('username-result');
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function runTextSimilarity() {
+            const text1 = document.getElementById('text1').value.trim();
+            const text2 = document.getElementById('text2').value.trim();
+            
+            if (!text1 || !text2) {
+                alert('Please enter both texts to compare.');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('similarity-result');
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            event.target.reset();
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
