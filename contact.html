@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - DetectYou</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-6">Contact Us</h1>
+      <p class="text-xl text-gray-600">Have questions about our tools or need help with online safety? We're here to help.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+      <h2 class="text-2xl font-bold mb-6">Get in Touch</h2>
+      <div class="space-y-6">
+        <div class="flex items-start">
+          <i class="fas fa-envelope text-blue-600 text-xl mr-4 mt-1"></i>
+          <div>
+            <h3 class="font-semibold">Email Support</h3>
+            <p>support@detectyou.com</p>
+            <p class="text-sm text-gray-500">We typically respond within 24 hours</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <i class="fas fa-shield-alt text-green-600 text-xl mr-4 mt-1"></i>
+          <div>
+            <h3 class="font-semibold">Security Issues</h3>
+            <p>security@detectyou.com</p>
+            <p class="text-sm text-gray-500">For reporting security vulnerabilities</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <i class="fas fa-question-circle text-purple-600 text-xl mr-4 mt-1"></i>
+          <div>
+            <h3 class="font-semibold">General Inquiries</h3>
+            <p>info@detectyou.com</p>
+            <p class="text-sm text-gray-500">Questions about our services</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-6">Send us a Message</h2>
+      <form onsubmit="submitContactForm(event)">
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Name</label>
+          <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Email</label>
+          <input type="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium mb-2">Subject</label>
+          <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+            <option>General Question</option>
+            <option>Tool Feedback</option>
+            <option>Privacy Concern</option>
+            <option>Technical Issue</option>
+            <option>Partnership Inquiry</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label class="block text-sm font-medium mb-2">Message</label>
+          <textarea required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 h-32 resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+          <i class="fas fa-paper-plane mr-2"></i>Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function submitContactForm(event) {
+      event.preventDefault();
+      alert("Thank you for your message! We'll get back to you soon.");
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
