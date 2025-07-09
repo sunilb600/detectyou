@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>হাসির ঝড় - বাংলা জোকস ওয়েবসাইট</title>
+  <style>
+    body { font-family: 'Noto Sans Bengali', sans-serif; background: #fff8e1; margin: 0; padding: 0; text-align: center; }
+    header { background: #ff6f00; color: white; padding: 20px 0; font-size: 28px; }
+    nav a { margin: 0 10px; color: white; text-decoration: none; font-size: 16px; }
+    .joke-box { background: white; margin: 20px auto; padding: 20px; border-radius: 10px; max-width: 600px; box-shadow: 0 0 8px rgba(0,0,0,0.1); font-size: 18px; }
+    .joke-links a { display: inline-block; margin: 5px; padding: 8px 12px; background: #ff9800; color: white; border-radius: 5px; text-decoration: none; }
+    .next-joke { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #4caf50; color: white; border-radius: 5px; text-decoration: none; }
+    footer { margin-top: 30px; font-size: 14px; color: #777; padding: 15px; background: #f1f1f1; }
+    footer a { color: #ff6f00; margin: 0 8px; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  হাসির ঝড় - বাংলা জোকস
+  <nav>
+    <br>
+    <a href="index.html">হোম</a>
+    <a href="about.html">আমাদের সম্পর্কে</a>
+    <a href="privacy.html">প্রাইভেসি</a>
+    <a href="contact.html">যোগাযোগ</a>
+    <a href="disclaimer.html">ডিসক্লেমার</a>
+  </nav>
+</header>
+
+<h2>আজকের ফিচার জোকস</h2>
+<div class="joke-box">
+  শিক্ষকঃ বলো তো, পড়ার সময় হাসা ঠিক না ভুল?<br>
+  ছাত্রঃ একদম ঠিক! কারণ পড়া দেখে হাসি পায়!
+</div>
+
+<h3>সব জোকস:</h3>
+<div class="joke-links">
+  <a href="joke1.html">জোকস ১</a>
+  <a href="joke2.html">জোকস ২</a>
+  <a href="joke3.html">জোকস ৩</a>
+  <a href="joke4.html">জোকস ৪</a>
+  <a href="joke5.html">জোকস ৫</a>
+  <a href="joke6.html">জোকস ৬</a>
+  <a href="joke7.html">জোকস ৭</a>
+  <a href="joke8.html">জোকস ৮</a>
+  <a href="joke9.html">জোকস ৯</a>
+  <a href="joke10.html">জোকস ১০</a>
+</div>
+
+<a class="next-joke" href="#" onclick="goToRandom()">আরেকটা জোকস দেখাও</a>
+
+<footer>
+  <a href="about.html">About Us</a> |
+  <a href="privacy.html">Privacy Policy</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="disclaimer.html">Disclaimer</a>
+  <br>© 2025 হাসির ঝড়
+</footer>
+
+<script>
+  function goToRandom() {
+    const total = 10; // মোট জোকস সংখ্যা
+    const randomPage = Math.floor(Math.random() * total) + 1;
+    window.location.href = `joke${randomPage}.html`;
+  }
+</script>
+
+</body>
+</html>
